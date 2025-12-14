@@ -1,9 +1,7 @@
-// DesktopIcon.js
 import React, { type ReactElement, type ReactNode,type ComponentType } from "react";
 import { Modal, TitleBar, useModal } from "@react95/core";
 import { useWindowsStore } from "../store/windows";
 
-// Centralized style objects for maintainability and clarity
 const styles = {
   desktopIcon: {
     alignItems: "center",
@@ -102,10 +100,6 @@ const Window = ({ title, onClose, children, icon, width, height }:WindowProps) =
   );
 };
 
-/**
- * A desktop icon that opens a window on double-click.
- */
-
 interface DesktopIconProps {
   icon: ReactElement<{ variant?: string }>;
   name:string;
@@ -156,5 +150,4 @@ const DesktopIcon = ({
 
 export default DesktopIcon;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SafeModal = Modal as unknown as ComponentType<any>;

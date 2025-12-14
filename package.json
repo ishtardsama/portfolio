@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react95/clippy": "^2.0.2",
     "@react95/core": "^9.6.0",
     "@react95/icons": "^2.2.0",
     "@tailwindcss/vite": "^4.1.11",

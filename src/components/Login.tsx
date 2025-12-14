@@ -51,5 +51,4 @@ function Login() {
 
 export default Login;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SafeModal = Modal as unknown as ComponentType<any>;
