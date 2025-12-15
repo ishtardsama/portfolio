@@ -104,8 +104,10 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
         />,
       ]}
     >
-      <Modal.Content width={`${width}px`} height={`${height}px`}>
-        {children}
+      <Modal.Content width={`${w}px`} height={`${h}px`}>
+        <div style={{ height: "100%", overflow: "auto", padding: "1rem" }}>
+          {children}
+        </div>
       </Modal.Content>
     </SafeModal>
   );

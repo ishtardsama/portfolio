@@ -1,6 +1,8 @@
-import { Avatar, Fieldset, Tab, Tabs } from '@react95/core';
+import { Avatar, Fieldset, Tab, Tabs, Button } from '@react95/core';
+import { useWindowsStore } from "../store/windows";
 
 function Resume() {
+  const { openWindow } = useWindowsStore();
   return (
     <Tabs defaultActiveTab="AboutMe">
       <Tab title="AboutMe">
@@ -18,14 +20,30 @@ function Resume() {
       <Tab title="Experience">
         <Fieldset legend="Google Developer Groups (GDG) Georgetown DevFest 2025">
           <p>
-            Emcee for all the workshops conducted.
+            Emcee for all the workshops conducted.<br></br><br></br>
+            <span 
+  onClick={() => openWindow("Gallery")} 
+  style={{ 
+    color: "blue", 
+    textDecoration: "underline", 
+    cursor: "pointer", 
+    fontWeight: "bold" 
+  }}
+>
+  View Images
+</span>
           </p>
         </Fieldset>
         <Fieldset legend="NextUP Hackathon 2025">
           <p>
             Me and my 4 teammates built KZOLM Microhabits for our submission, this website utilizes microhabits to help users to build up good habits, focusing more on the consistency instead of the magnitude of the task. 
           </p>
-          <a href="https://github.com/Meng-prog-ux/KZOLM-Microhabits.git" target="_blank" rel = "noopener noreferrer">
+          <a href="https://github.com/Meng-prog-ux/KZOLM-Microhabits.git" target="_blank" rel = "noopener noreferrer" style={{ 
+    color: "blue", 
+    textDecoration: "underline", 
+    cursor: "pointer", 
+    fontWeight: "bold" 
+  }}>
           GitHub Link
           </a>
         </Fieldset>

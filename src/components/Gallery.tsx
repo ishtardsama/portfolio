@@ -12,13 +12,33 @@ type GallerySectionType = {
 };
 
 const galleryData: GallerySectionType[] = [
+    {
+    title: "Google Developer Groups DevFest 2025",
+    items: [
+      {
+        src: "/Devfest_0907.JPG",
+        alt: "gdg 1",
+        description: "Emcee @ GDG DevFest"
+      },
+      {
+        src: "/Devfest_0916.JPG",
+        alt: "gdg 2",
+        description: ""
+      },
+    ]
+  },
   {
-    title: "Pictures that I would like to show",
+    title: "Some of my hobbies",
     items: [
       {
         src: "https://i.pinimg.com/564x/46/cf/d3/46cfd36a2bb4b019c35f09976efe5336.jpg",
         alt: "cccat",
         description: "I'm a big fan of CC from Code Geass!"
+      },
+      {
+        src: "/PXL_20250306_144639851.jpg",
+        alt: "fish",
+        description: "I love to fish!"
       },
       {
         src: "https://pbs.twimg.com/media/G8LP4ZfXAAgmPvg.png",
