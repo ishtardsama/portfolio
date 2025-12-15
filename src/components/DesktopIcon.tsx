@@ -1,4 +1,4 @@
-import React, { type ReactElement, type ReactNode,type ComponentType } from "react";
+import React, { type ReactElement, type ReactNode, type ComponentType } from "react";
 import { Modal, TitleBar, useModal } from "@react95/core";
 import { useWindowsStore } from "../store/windows";
 
@@ -71,15 +71,26 @@ interface WindowProps {
   children: ReactNode;
   width?: number;
   height?: number;
-  onClose:()=>void;
+  onClose: () => void;
 }
-const Window = ({ title, onClose, children, icon, width, height }:WindowProps) => {
+
+const Window = ({ title, onClose, children, icon, width, height }: WindowProps) => {
   const { minimize } = useModal();
+
+  const screenW = window.innerWidth;
+  const screenH = window.innerHeight;
+  const w = width || 500; 
+  const h = height || 500;
+
+  const x = Math.max(0, (screenW - w) / 2);
+  const y = Math.max(0, (screenH - h) / 2);
+
   return (
     <SafeModal
       id={title}
       icon={icon}
       title={title}
+      defaultPosition={{ x, y }}
       titleBarOptions={[
         <TitleBar.Minimize
           style={{ marginBlock: "auto" }}
@@ -102,7 +113,7 @@ const Window = ({ title, onClose, children, icon, width, height }:WindowProps) =
 
 interface DesktopIconProps {
   icon: ReactElement<{ variant?: string }>;
-  name:string;
+  name: string;
   children: ReactNode;
   width?: number;
   height?: number;
@@ -146,7 +157,6 @@ const DesktopIcon = ({
     </>
   );
 };
-
 
 export default DesktopIcon;
 

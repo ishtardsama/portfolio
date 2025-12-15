@@ -1,6 +1,5 @@
 import { Frame, List } from "@react95/core";
-import { Mail } from "@react95/icons";
-import { FaGithub, FaInstagram  } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaGoogle  } from "react-icons/fa";
 
 const contactLinks = [
   {
@@ -8,7 +7,9 @@ const contactLinks = [
   {
     icon: <FaInstagram size={24} />, label: "Instagram", url: "https://instagram.com/zzzaaacccc" },
   {
-    icon: <Mail variant="32x32_4" />, label: "Gmail", url: "mailto:noteethme@gmail.com" },
+    icon: <FaLinkedin />, label:"LinkedIn", url: "https://www.linkedin.com/in/choong-jun-zac-4394a63a0/"},
+  {
+    icon: <FaGoogle />, label: "Gmail", url: "mailto:noteethme@gmail.com" },
 ];
 
 const Contact = () => (
