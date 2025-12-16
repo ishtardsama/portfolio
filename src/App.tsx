@@ -15,7 +15,6 @@ function App() {
           <DesktopIcon width={650} height={450} icon={<Wordpad variant="32x32_4" />} name="My Info">
             <Resume />
           </DesktopIcon>
-          
 
           <DesktopIcon width={350} height={250} icon={<Mail variant="32x32_4" />} name="Contact Me">
             <Contact />

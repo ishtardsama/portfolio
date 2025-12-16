@@ -79,6 +79,7 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
 
   const screenW = window.innerWidth;
   const screenH = window.innerHeight;
+  
   const w = width || 500; 
   const h = height || 500;
 
