@@ -8,6 +8,7 @@ import {
 import { FaGithub, FaInstagram, FaLinkedinIn} from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useWindowsStore } from "../store/windows";
+import { FaGoogle } from "react-icons/fa6";
 
 function Clock() {
   const [time, setTime] = useState(new Date());
@@ -31,6 +32,12 @@ function WindowBar() {
       <TaskBar
         list={
           <List width={"200px"}>
+            <List.Item
+              onClick={() => openWindow("My Info")}
+              icon={<Wordpad variant="32x32_4" />}
+            >
+              My Info
+            </List.Item>
             <List.Item icon={<Mail variant="32x32_4" />}>
               <List width={"200px"}>
                 <List.Item icon={<FaGithub size={16} />}>
@@ -39,7 +46,7 @@ function WindowBar() {
                 <List.Item icon={<FaInstagram size={16} />}>
                   <a href="https://instagram.com/zzzaaacccc" target="_blank" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>Instagram</a>
                 </List.Item>
-                <List.Item icon={<Mail variant="16x16_4" />}>
+                <List.Item icon={<FaGoogle size={16} />}>
                   <a href="mailto:noteethme@gmail.com" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>Gmail</a>
                 </List.Item>
                 <List.Item icon={<FaLinkedinIn size={16} />}>
@@ -62,13 +69,6 @@ function WindowBar() {
             >
               Browser
             </List.Item>
-            <List.Item
-              onClick={() => openWindow("My Info")}
-              icon={<Wordpad variant="32x32_4" />}
-            >
-              My Info
-            </List.Item>
-            
           </List>
         }
       >

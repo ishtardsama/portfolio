@@ -15,14 +15,24 @@ function App() {
             <DesktopIcon width={650} icon={<Wordpad variant="32x32_4" />} name="My Info">
               <Resume />
             </DesktopIcon>
-            <DesktopIcon icon={<Inetcpl1313 variant="32x32_4" />} name="Browser">
-              <iframe width={800} height={500} src="https://www.google.com/webhp?igu=1" />
-            </DesktopIcon>
-            <DesktopIcon width={400} icon={<Mail variant="32x32_4" />} name="Contact Me">
+            <DesktopIcon width={400} height={210} icon={<Mail variant="32x32_4" />} name="Contact Me">
               <Contact />
             </DesktopIcon>
             <DesktopIcon width={500} icon={<Mspaint variant="32x32_4" />} name="Gallery">
             <Gallery />
+          </DesktopIcon>
+          <DesktopIcon 
+            width={835}  
+            height={530} 
+            icon={<Inetcpl1313 variant="32x32_4" />} 
+            name="Browser"
+          >
+            <iframe 
+              width={800} 
+              height={500} 
+              src="https://www.google.com/webhp?igu=1"
+              style={{ border: "none" }}
+            />
           </DesktopIcon>
           </div>
           <WindowBar />
