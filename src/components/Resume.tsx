@@ -1,4 +1,4 @@
-import { Avatar, Fieldset, Tab, Tabs, Button } from '@react95/core';
+import { Avatar, Fieldset, Tab, Tabs } from '@react95/core';
 import { useWindowsStore } from "../store/windows";
 
 function Resume() {
