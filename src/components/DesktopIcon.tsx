@@ -92,16 +92,8 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
       title={title}
       defaultPosition={{ x, y }}
       titleBarOptions={[
-        <TitleBar.Minimize
-          style={{ marginBlock: "auto" }}
-          key="maximize"
-          onClick={() => minimize(title)}
-        />,
-        <TitleBar.Close
-          style={{ marginBlock: "auto" }}
-          key="close"
-          onClick={onClose}
-        />,
+        <TitleBar.Minimize key="minimize" onClick={() => minimize(title)} />,
+        <TitleBar.Close key="close" onClick={onClose} />,
       ]}
     >
       <Modal.Content width={`${w}px`} height={`${h}px`}>
