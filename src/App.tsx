@@ -16,7 +16,7 @@ function App() {
             <Resume />
           </DesktopIcon>
 
-          <DesktopIcon width={350} height={250} icon={<Mail variant="32x32_4" />} name="Contact Me">
+          <DesktopIcon width={400} height={220} icon={<Mail variant="32x32_4" />} name="Contact Me">
             <Contact />
           </DesktopIcon>
 
@@ -24,7 +24,7 @@ function App() {
             <Gallery />
           </DesktopIcon>
 
-          <DesktopIcon width={850} height={550} icon={<Inetcpl1313 variant="32x32_4" />} name="Browser">
+          <DesktopIcon width={830} height={550} icon={<Inetcpl1313 variant="32x32_4" />} name="Browser">
             <iframe width={800} height={500} src="https://www.google.com/webhp?igu=1" style={{ border: "none" }} />
           </DesktopIcon>
         </div>

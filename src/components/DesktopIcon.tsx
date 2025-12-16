@@ -1,6 +1,7 @@
-import React, { type ReactElement, type ReactNode, type ComponentType } from "react";
+import React, { type ReactElement, type ReactNode, type ComponentType, useEffect, useState } from "react";
 import { Modal, TitleBar, useModal } from "@react95/core";
 import { useWindowsStore } from "../store/windows";
+import { createPortal } from "react-dom";
 
 const styles = {
   desktopIcon: {
@@ -14,54 +15,12 @@ const styles = {
     width: "100px",
     gap: "10px",
   },
-  iconImage: {
-    height: "64px",
-    marginBottom: "8px",
-    width: "64px",
-  },
   iconName: {
     color: "#ffffff",
     fontSize: "14px",
     margin: "0",
     textShadow: "1px 1px 3px rgba(0, 0, 0, 0.7)",
     userSelect: "none",
-  },
-  window: {
-    background: "#ffffff",
-    borderRadius: "8px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-    display: "flex",
-    flexDirection: "column",
-  },
-  titleBar: {
-    alignItems: "center",
-    background: "#f0f0f0",
-    borderTopLeftRadius: "8px",
-    borderTopRightRadius: "8px",
-    cursor: "move",
-    display: "flex",
-    fontWeight: "bold",
-    justifyContent: "space-between",
-    padding: "8px",
-  },
-  closeButton: {
-    alignItems: "center",
-    background: "#ff5f56",
-    border: "1px solid #e04440",
-    borderRadius: "50%",
-    color: "#9a0000",
-    cursor: "pointer",
-    display: "flex",
-    fontSize: "10px",
-    height: "15px",
-    justifyContent: "center",
-    lineHeight: "10px",
-    width: "15px",
-  },
-  windowContent: {
-    flex: "1",
-    overflow: "auto",
-    padding: "20px",
   },
 } as const;
 
@@ -76,22 +35,30 @@ interface WindowProps {
 
 const Window = ({ title, onClose, children, icon, width, height }: WindowProps) => {
   const { minimize } = useModal();
+  const [mounted, setMounted] = useState(false);
 
+  // Wait for mount to ensure window.innerWidth is accurate
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   const screenW = window.innerWidth;
   const screenH = window.innerHeight;
   
   const w = width || 500; 
   const h = height || 500;
 
-  const x = Math.max(0, (screenW - w) / 2);
-  const y = Math.max(0, (screenH - h) / 2);
+  const x = Math.round((screenW - w) / 2);
+  const y = Math.round((screenH - h) / 2);
 
-  return (
+  return createPortal(
     <SafeModal
       id={title}
       icon={icon}
       title={title}
       defaultPosition={{ x, y }}
+      style={{ position: "fixed", top: 0, left: 0, zIndex: 9999 }}
       titleBarOptions={[
         <TitleBar.Minimize key="minimize" onClick={() => minimize(title)} />,
         <TitleBar.Close key="close" onClick={onClose} />,
@@ -102,7 +69,8 @@ const Window = ({ title, onClose, children, icon, width, height }: WindowProps) 
           {children}
         </div>
       </Modal.Content>
-    </SafeModal>
+    </SafeModal>,
+    document.body // Teleport to the body tag
   );
 };
 

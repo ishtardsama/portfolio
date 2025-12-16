@@ -13,7 +13,7 @@ type GallerySectionType = {
 
 const galleryData: GallerySectionType[] = [
     {
-    title: "Google Developer Groups DevFest 2025",
+    title: "GDG (Google Developer Groups) Georgetown DevFest 2025",
     items: [
       {
         src: "/Devfest_0907.JPG",
@@ -24,6 +24,16 @@ const galleryData: GallerySectionType[] = [
         src: "/Devfest_0916.JPG",
         alt: "gdg 2",
         description: ""
+      },
+    ]
+  },
+      {
+    title: "KZOLM Microhabits @ NextUP Hackathon 2025",
+    items: [
+      {
+        src: "/Screenshot 2025-12-16 142701.png",
+        alt: "NextUp Hackathon 2025",
+        description: "I'm on the right! (Horrible Picture Quality)"
       },
     ]
   },
