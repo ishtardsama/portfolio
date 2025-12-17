@@ -18,11 +18,21 @@ const galleryData: GallerySectionType[] = [
       {
         src: "/Devfest_0907.JPG",
         alt: "gdg 1",
-        description: "Emcee @ GDG DevFest"
+        description: ""
       },
       {
         src: "/Devfest_0916.JPG",
         alt: "gdg 2",
+        description: "Emcee @ GDG DevFest"
+      },
+      {
+        src: "/IMG_3331.JPG",
+        alt: "gdg 4",
+        description: ""
+      },
+      {
+        src: "/WhatsApp Image 2025-12-15 at 5.02.35 AM.jpeg",
+        alt: "gdg 5",
         description: ""
       },
     ]
