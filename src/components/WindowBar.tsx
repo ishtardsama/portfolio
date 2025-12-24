@@ -46,11 +46,11 @@ function WindowBar() {
                 <List.Item icon={<FaInstagram size={16} />}>
                   <a href="https://instagram.com/zzzaaacccc" target="_blank" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>Instagram</a>
                 </List.Item>
-                <List.Item icon={<FaGoogle size={16} />}>
-                  <a href="mailto:noteethme@gmail.com" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>Gmail</a>
-                </List.Item>
                 <List.Item icon={<FaLinkedinIn size={16} />}>
                   <a href="https://www.linkedin.com/in/choong-jun-zac-4394a63a0/" target="_blank" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>LinkedIn</a>
+                </List.Item>
+                <List.Item icon={<FaGoogle size={16} />}>
+                  <a href="mailto:noteethme@gmail.com" style={{ textDecoration: 'none', color: '#222', fontFamily: 'MS Sans Serif' }}>Gmail</a>
                 </List.Item>
               </List>
               Contact Me

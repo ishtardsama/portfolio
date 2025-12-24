@@ -1,4 +1,6 @@
-import { Frame, Fieldset } from "@react95/core";
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import { Frame, Fieldset, Button } from "@react95/core";
 
 type GalleryItem = {
   src: string;
@@ -23,7 +25,7 @@ const galleryData: GallerySectionType[] = [
       {
         src: "/Devfest_0916.JPG",
         alt: "gdg 2",
-        description: "Emcee @ GDG DevFest"
+        description: "Emcee @ Google Developer Groups Georgetown DevFest 2025"
       },
       {
         src: "/IMG_3331.JPG",
@@ -70,8 +72,42 @@ const galleryData: GallerySectionType[] = [
 ];
 
 function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px", paddingBottom: "20px" }}>
+      {/* Lightbox Modal */}
+      {selectedImage && createPortal(
+        <div 
+            style={{ 
+                position: "fixed", 
+                inset: 0, 
+                backgroundColor: "rgba(0,0,0,0.5)", 
+                zIndex: 10000, 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center" 
+            }}
+            onClick={() => setSelectedImage(null)}
+        >
+            <div onClick={(e) => e.stopPropagation()} style={{ maxWidth: "90vw", maxHeight: "90vh" }}>
+                <Frame variant="window" style={{ padding: "0.5rem", background: "#c6c6c6", display: "flex", flexDirection: "column", gap: "0.5rem", boxShadow: "outset" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                        <Button onClick={() => setSelectedImage(null)} style={{ fontWeight: "bold", minWidth: "24px", padding: "0" }}>X</Button>
+                    </div>
+                    <Frame variant="well" style={{ padding: "2px", background: "white" }}>
+                        <img 
+                            src={selectedImage} 
+                            style={{ maxWidth: "100%", maxHeight: "calc(90vh - 100px)", objectFit: "contain", display: "block" }} 
+                            alt="Full size preview"
+                        />
+                    </Frame>
+                </Frame>
+            </div>
+        </div>,
+        document.body
+      )}
+
       {galleryData.map((section, sectionIndex) => (
         <Fieldset key={sectionIndex} legend={section.title}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1.5rem", alignItems: "start" }}>
@@ -83,7 +119,8 @@ function Gallery() {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    style={{ width: "100%", height: "auto", display: "block" }}
+                    style={{ width: "100%", height: "auto", display: "block", cursor: "pointer" }}
+                    onClick={() => setSelectedImage(item.src)}
                   />
                 </Frame>
                 
